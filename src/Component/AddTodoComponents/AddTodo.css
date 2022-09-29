@@ -1,0 +1,22 @@
+body {
+    background: rgb(92, 119, 134);
+display: flex;
+justify-content: center;
+}
+.Add_todo{
+background: rgb(113, 110, 92);
+width: 400px ;
+height: 200px;
+margin-top: 30px;
+padding: 20px;
+border-radius: 20px;
+}
+.Add_todo input {
+    padding: 7px 30px;
+    margin: 10px 0px;
+}
+button ,input[type="submit"]{
+    padding: 7px 40px;
+    color: white;
+    background: rgb(83, 108, 128);
+}
