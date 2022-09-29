@@ -12,7 +12,10 @@ function EditDeleteButton(props) {
         formdata.append('todo_id', todoId);
         axios.post(deleteApi, formdata)
             .then((res) => {
-
+                axios.get(displayList)
+                .then((res)=> {
+                    window.location.reload()
+                })
             });
     }
 

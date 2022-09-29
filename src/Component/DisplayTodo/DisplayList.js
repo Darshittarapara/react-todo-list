@@ -4,19 +4,20 @@ import { allApiObject } from '../ALL_API/Api';
 import EditDeleteButton from '../EditDeleteButton/EditDeleteButton';
 function DisplayList() {
     const [items, setTodoItems] = useState([]);
-console.log(allApiObject.getList())
-    // useEffect(() => {
-    //     const displayList = allApiObject.getList();
-    //     console.log(displayList)
-    //     axios.get(displayList)
-    //         .then((res) => {
-    //             setTodoItems(res.data.todo_list);
-    //             console.log(res.data.todo_list);
-    //         })
-    // }, []);
-
-    const handleListAPI = (res) => {
-        console.log(res);
+    console.log(allApiObject.getList())
+    useEffect(() => {
+        const displayList = allApiObject.getList();
+        console.log(displayList)
+        axios.get(displayList)
+            .then((res) => {
+                setTodoItems(res.data.todo_list);
+                
+            })
+    }, []);
+ 
+    const todoListOnDeleteEventHandler = (items) => {
+        console.log(items)
+        setTodoItems(items)
     }
     return (
         <div className='display-list'>
@@ -40,7 +41,7 @@ console.log(allApiObject.getList())
                                 <td>{list.todo_datetime}</td>
 
                                 <td>
-                                    <EditDeleteButton id={list.todo_id} />
+                                    <EditDeleteButton id={list.todo_id} onDeleteList ={todoListOnDeleteEventHandler} />
                                 </td>
                             </tr>
                         )
